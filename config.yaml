@@ -1,0 +1,80 @@
+model_name: email_summary
+
+field_checks:
+  type: object
+  required:
+    - summary
+    - isCommerce
+    - isSpam
+    - isWork
+  properties:
+    isCommerce:
+      type: number
+      minimum: 0
+      maximum: 1
+    isSpam:
+      type: number
+      minimum: 0
+      maximum: 1
+    isWork:
+      type: number
+      minimum: 0
+      maximum: 1
+    summary:
+      type: string
+
+max_retries: 5
+
+sections:
+  - name: gmail
+    display_name: Gmail
+    filters:
+      - type: sender_domain
+        value: gmail.com
+  - name: fma
+    display_name: FMA
+    filters:
+      - type: sender_email
+        value: contact@freemusicarchive.org
+  - name: unreal
+    display_name: Unreal
+    filters:
+      - type: subject_contains
+        value: "unreal"
+  - name: adobe
+    display_name: Adobe
+    filters:
+      - type: sender_name_contains
+        value: "Adobe"
+  - name: confirmation
+    display_name: Confirmation
+    filters:
+      - type: subject_contains
+        value: "confirmation"
+      - type: sender_domain
+        value: gmail.com
+  - name: all
+    display_name: Regular Emails
+  - name: grouped_gmail_fma_unreal_adobe
+    display_name: Gmail + FMA + Unreal + Adobe
+    or:
+      - gmail
+      - fma
+      - unreal
+      - adobe
+  - name: gmail_without_confirmations
+    display_name: Gmail without Confirmations
+    and:
+      - gmail
+    exclude:
+      - confirmation
+
+tabs:
+  - name: general
+    sections:
+      - gmail_without_confirmations
+      - grouped_gmail_fma_unreal_adobe
+      - all
+    sort:
+      - field: date
+        direction: desc

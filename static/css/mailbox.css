@@ -1,0 +1,164 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: #2e2e2e;
+  /* dark background for the body */
+  color: #eaeaea;
+  /* light text color for general text */
+}
+
+
+.container,
+.container-fluid,
+.container-lg,
+.container-md,
+.container-sm,
+.container-xl {
+  background-color: transparent;
+  /* Remove any background color */
+  color: inherit;
+  /* Inherit the color from its parent */
+}
+
+
+a {
+  color: #b3d4fc;
+  /* slightly blue for hyperlinks */
+}
+
+a:hover {
+  color: #83b1f7;
+  /* darker blue for hover state on hyperlinks */
+}
+
+.card {
+  background-color: #3a3a3a;
+  /* slightly lighter than body for distinction */
+  border-color: #4a4a4a;
+  /* dark border for cards */
+}
+
+.card-header,
+.card-footer {
+  background-color: #333;
+  /* even darker for card headers and footers */
+}
+
+#emailContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+}
+
+h5.card-title {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  line-height: 1.5;
+  /* or whatever line-height you prefer */
+  height: 1.5em;
+  /* 1 times the line-height */
+  max-width: 100%;
+  /* Ensure it takes no more than 100% width of its container */
+}
+
+/* Remove padding from the card's list */
+.card .list-group {
+  padding: 0;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #383838;
+  flex-grow: 1;
+}
+
+/* Control padding for list items */
+.card .list-group-item {
+  padding: 5px;
+}
+
+.right-details-list-item-from {
+  background-color: #303438;
+  color: #bbb;
+}
+
+.right-details-list-item-to {
+  background-color: #383830;
+  color: #bbb;
+}
+
+.right-details-list-item-date {
+  background-color: #444;
+  color: #bbb;
+}
+
+.section-separator {
+  width: 200%;
+  margin-left: -33%;
+  margin-right: -33%;
+  padding: 10px 20px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  background: linear-gradient(rgba(255, 255, 255, 0%) 0%, rgba(0, 0, 0, 40%) 40%, rgba(255, 255, 255, 0%) 80%);
+  overflow: visible;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 30px;
+  color: #fff;
+  margin-bottom: 12px;
+}
+
+.section-rules {
+  font-size: 14px;
+  color: #aaa;
+  list-style-type: none;
+  padding-left: 0;
+  display: inline-block;
+  text-align: left;
+}
+
+.section-rules li {
+  margin-bottom: 3px;
+}
+
+@keyframes swipeOutLeft {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes swipeOutRight {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(50%);
+  }
+}
+
+.card-removal-swipe-left {
+  animation: swipeOutLeft 0.25s forwards;
+  /* forwards ensures the element stays at the end state of the animation */
+}
+
+.card-removal-swipe-right {
+  animation: swipeOutRight 0.25s forwards;
+  /* forwards ensures the element stays at the end state of the animation */
+}

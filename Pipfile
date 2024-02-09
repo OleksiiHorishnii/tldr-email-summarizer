@@ -1,0 +1,22 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+Flask = "*"
+flask_cors = "*"
+requests = "*"
+gunicorn = "*"
+beautifulsoup4 = "*"
+Flask-SQLAlchemy = "*"
+Flask-SocketIO = "*"
+eventlet = "*"
+jsonschema = "*"
+pyyaml = "*"
+
+[dev-packages]
+ipykernel = "*"
+
+[requires]
+python_version = "3.11"
